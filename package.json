@@ -1,0 +1,14 @@
+{
+  "name": "bookworm",
+  "version": "1.0.0",
+  "description": "recommend your favorite books",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gerald Aqui",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
