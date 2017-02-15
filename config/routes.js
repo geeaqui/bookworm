@@ -1,7 +1,8 @@
 var express = require('express');
-var routes = express.Router();
+var router = express.Router();
 var bookController = require('../controllers/books');
 
+//books
 router.route("/")
 	.get(bookController.index)
 	.post(bookController.create);
