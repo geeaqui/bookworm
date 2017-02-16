@@ -42,7 +42,7 @@ function newBook(req, res){
 	}
 
 	res.render('books/new', {
-		title: "Edit",
+		title: "New",
 		book: newBook
 	});
 }

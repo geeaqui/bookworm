@@ -8,7 +8,7 @@ router.route("/")
 	.post(booksController.create);
 
 router.route("/new")
-	.post(booksController.create);
+	.get(booksController.new);
 
 router.route("/:id")
 	.get(booksController.show)
