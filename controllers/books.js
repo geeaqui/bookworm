@@ -1,21 +1,57 @@
+var Book = require('../models/book');
+
 function indexBooks(req, res){
-	res.send('Index');
+	Book.find({}, function(err, books){
+		if(err) return res.status(500).send(err);
+		res.render('books/index', {
+			title: "Books",
+			book: books
+		});
+	});
 }
 
 function showBook(req, res){
-	res.send('Show');
+	Book.findById(req.params.id,function(err, book){
+		if(!book) return res.status(404).send('Book not found');
+		if(err) return res.status(500).send(err);
+		res.render('books/show', {
+			title: "Books",
+			book: book
+		});
+	})
 }
 
 function editBook(req, res){
-	res.send('Edit');
+	Book.findById(req.params.id, function(err, book){
+		if(!book) return res.status(404).send('Book not Found!');
+		if(err) return res.status(500).send(err);
+
+		res.render('books/:id/edit', {
+			title: "Edit Book",
+			book: book
+		});
+	});
 }
 
 function newBook(req, res){
-	res.send('New');
+	var newBook = {
+		title: "",
+		description: "",
+		author: "",
+		recommendations: ""
+	}
+
+	res.render('books/new', {
+		title: "Edit",
+		book: newBook
+	});
 }
 
 function createBook(req, res){
-	res.send('Create');
+	Car.create(req.body, function(err, book){
+		if(err) return res.status(500).send(err);
+		res.redirect('/');
+	});
 }
 
 function updateBook(req, res){

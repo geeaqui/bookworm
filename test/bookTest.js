@@ -29,4 +29,134 @@ describe('Books', function(){
 			if(err) return console.log(err);
 		});
 	});
+
+	it('should list ALL books on / GET', function(done) {
+	    var request = chai.request(app);
+	    request
+	      .get('/')
+	      .end(function(err, res){
+	        res.should.have.status(200);
+	        res.should.be.html;
+	        res.text.should.match("Books");
+	        res.text.should.match("Harry Potter");
+	        done();
+	      });
+	  });
+
+	it('should list a SINGLE book on /<id> GET', function(done) {
+	    chai.request(app)
+	      .get('/' + book.id)
+	      .end(function(err, res){
+	        res.should.have.status(200);
+	        res.should.be.html;
+	        res.text.should.match(/Library 1/);
+	        done();
+	      });
+	  });
+
+	  it('should add a SINGLE book on / POST' , function(done){
+	    var request = chai.request(app);
+	    request.post('/')
+	      .set('content-type', 'application/x-www-form-urlencoded')
+	      .send({
+	      	_id: 123,
+	        title: "The Lord of the Rings",
+	        descritpion: "The Return of the King",
+	        author: "R. R. Tolkien",
+	        recommendations: 199
+	      })
+	      .end(function(err, res){
+	        res.should.have.status(200);
+	        res.should.be.html;
+	        res.text.should.match(/All books/);
+	        request
+	          .get('/123')
+	          .end(function(err, res){
+	            res.should.have.status(200);
+	            res.should.be.html;
+	            res.text.should.match(/The Lord of the Rings/);
+	            res.text.should.match(/The Return of the King/);
+	
+	            Book.findByIdAndRemove(123, function(err) {
+	              if (err) return console.log(err);
+	              done();
+	            });
+	          });
+	      });
+	  });
+
+	  // describe a test for PUT
+	  it('should update a SINGLE book on /<id> PUT' , function(done){
+	    var request = chai.request(app);
+	    request.put('/' + car.id)
+	      .set('content-type', 'application/x-www-form-urlencoded')
+	      .send({'title': 'War and Peace', 'author':  'Leo Tolstoy'})
+	      .end(function(err, res){
+	        res.should.have.status(200);
+	        res.should.be.html;
+	        res.text.should.match(/Books/);
+	        request
+	          .get('/' + car.id)
+	          .end(function(err, res){
+	            res.should.have.status(200);
+	            res.should.be.html;
+	            res.text.should.match(/War/);
+	            res.text.should.match(/Peace/);
+	            done();
+	          });
+	      });
+	  });
+
+	   it('should delete a SINGLE book on /<id> DELETE' , function(done) {
+	    var request = chai.request(app);
+	    request.delete('/' + book.id)
+	      .end(function(err, res){
+	        res.should.have.status(200);
+	        res.should.be.html;
+	        res.text.should.match(/Books/);
+	        request
+	          .get('/' + book.id)
+	          .end(function(err, res){
+	            res.should.have.status(404);
+	            done();
+	          });
+	      });
+	  });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
