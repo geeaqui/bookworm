@@ -16,7 +16,7 @@ router.route("/:id")
 	.delete(booksController.delete);
 
 router.route("/:id/edit")
-	.put(booksController.edit);
+	.get(booksController.edit);
 
 
 module.exports = router;

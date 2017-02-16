@@ -26,7 +26,7 @@ function editBook(req, res){
 		if(!book) return res.status(404).send('Book not Found!');
 		if(err) return res.status(500).send(err);
 
-		res.render('books/:id/edit', {
+		res.render('books/edit', {
 			title: "Edit Book",
 			book: book
 		});
@@ -48,14 +48,14 @@ function newBook(req, res){
 }
 
 function createBook(req, res){
-	Car.create(req.body, function(err, book){
+	Book.create(req.body, function(err){
 		if(err) return res.status(500).send(err);
 		res.redirect('/');
 	});
 }
 
 function updateBook(req, res){
-	Car.findByIdAndUpdate(req.params.id, 
+	Book.findByIdAndUpdate(req.params._id, 
 		{$set: req.body},
 		{runValidator: true},
 		function(err, car){
@@ -65,7 +65,7 @@ function updateBook(req, res){
 }
 
 function deleteBook(req, res){
-	Car.findByIdAndRemove(req.params.id, function(err){
+	Book.findByIdAndRemove(req.params.id, function(err){
 		if(err) return res.status(500).send(err);
 		res.redirect('/');
 	});
