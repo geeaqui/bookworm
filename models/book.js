@@ -13,7 +13,7 @@ var BookSchema = mongoose.Schema({
 	description:{
 		type: String,
 		required:true,
-		maxlength:200
+		maxlength:1000
 	},
 	recommended:{
 		type:Number

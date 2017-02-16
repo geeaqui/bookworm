@@ -35,10 +35,10 @@ function editBook(req, res){
 
 function newBook(req, res){
 	var newBook = {
+		id :"",
 		title: "",
 		description: "",
-		author: "",
-		recommendations: ""
+		author: ""
 	}
 
 	res.render('books/new', {
@@ -55,7 +55,7 @@ function createBook(req, res){
 }
 
 function updateBook(req, res){
-	Book.findByIdAndUpdate(req.params._id, 
+	Book.findByIdAndUpdate(req.params.id, 
 		{$set: req.body},
 		{runValidator: true},
 		function(err, car){
