@@ -55,11 +55,20 @@ function createBook(req, res){
 }
 
 function updateBook(req, res){
-	res.send('Update');
+	Car.findByIdAndUpdate(req.params.id, 
+		{$set: req.body},
+		{runValidator: true},
+		function(err, car){
+			if(err) return res.status(500).send(err);
+			res.redirect('/');
+		});
 }
 
 function deleteBook(req, res){
-	res.send('Delete');
+	Car.findByIdAndRemove(req.params.id, function(err){
+		if(err) return res.status(500).send(err);
+		res.redirect('/');
+	});
 }
 
 
