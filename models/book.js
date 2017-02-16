@@ -4,10 +4,11 @@ var BookSchema = mongoose.Schema({
 	title : {
 		type: String,
 		required:true,
+		min:5
 	},
 	author: {
 		type: String,
-		required: true,
+		required: true
 
 	},
 	description:{

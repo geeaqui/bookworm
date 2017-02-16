@@ -52,6 +52,14 @@ app.use(function(req,res,next) {
 
 app.use(flash());
 
+// middleware to make flash messages available in every template
+app.use(function(req, res, next){
+    // res.locals will be available in every template
+    res.locals.errors = req.flash('error');
+    console.log(res.locals.errors);
+    next();
+});
+
 //connect to the database
 mongoose.connect('mongodb://localhost/books', function(){
 	console.log('database has been connected');
