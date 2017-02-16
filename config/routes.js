@@ -1,6 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var booksController = require('../controllers/books');
+var usersController = require('../controllers/users');
+
+//users
+router.route('/users')
+      .post(usersController.create);
+
+router.route('/users/new')
+      .get(usersController.new);
 
 //books
 router.route("/")
