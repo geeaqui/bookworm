@@ -9,6 +9,7 @@ var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var flash = require('connect-flash');
+var User = require('./models/user');
 
 // add support for cookies
 app.use(cookieParser());
