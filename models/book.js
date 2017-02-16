@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var BookSchema = mongoose.BookSchema({
+var BookSchema = mongoose.Schema({
 	title : {
 		type: String,
 		required:true,
@@ -20,4 +20,4 @@ var BookSchema = mongoose.BookSchema({
 	}
 });
 
-module.exports = mongoose.module('Book', BookSchema);
+module.exports = mongoose.model('Book', BookSchema);

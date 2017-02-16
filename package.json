@@ -11,5 +11,9 @@
   "dependencies": {
     "express": "^4.14.1",
     "mongoose": "^4.8.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0"
   }
 }
