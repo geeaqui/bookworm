@@ -8,6 +8,7 @@ var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+var flash = require('connect-flash');
 
 // add support for cookies
 app.use(cookieParser());
@@ -49,6 +50,8 @@ app.use(function(req,res,next) {
 
 });
 
+app.use(flash());
+
 //connect to the database
 mongoose.connect('mongodb://localhost/books', function(){
 	console.log('database has been connected');
@@ -73,13 +76,13 @@ app.set('view engine' , 'ejs');
 app.use(layouts);
 
 // check for login on all routes except sessions
-app.use(function(req, res, next) {
-  var urls = ["/sessions/new", "/users/new", "/sessions", "/users"];
-  if(urls.indexOf(req.url) === -1) {
-    if (!req.user) return res.redirect('/sessions/new');
-  }
-  next();
-});
+// app.use(function(req, res, next) {
+//   var urls = ["/sessions/new", "/users/new", "/sessions", "/users"];
+//   if(urls.indexOf(req.url) === -1) {
+//     if (!req.user) return res.redirect('/sessions/new');
+//   }
+//   next();
+// });
 
 //use router
 app.use(routes);

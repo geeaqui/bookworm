@@ -49,7 +49,7 @@ function newBook(req, res){
 
 function createBook(req, res){
 	Book.create(req.body, function(err){
-		if(err) return res.status(500).send(err);
+		if(err) return req.flash('error' , err.message);
 		res.redirect('/');
 	});
 }
