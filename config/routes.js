@@ -1,22 +1,22 @@
 var express = require('express');
 var router = express.Router();
-var bookController = require('../controllers/books');
+var booksController = require('../controllers/books');
 
 //books
 router.route("/")
-	.get(bookController.index)
-	.post(bookController.create);
+	.get(booksController.index)
+	.post(booksController.create);
 
 router.route("/new")
-	.post(bookController.create);
+	.post(booksController.create);
 
 router.route("/:id")
-	.get(bookController.show)
-	.put(bookController.update)
-	.delete(bookController.delete);
+	.get(booksController.show)
+	.put(booksController.update)
+	.delete(booksController.delete);
 
 router.route("/:id/edit")
-	.put(bookController.edit);
+	.put(booksController.edit);
 
 
 module.exports = router;

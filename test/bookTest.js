@@ -16,17 +16,19 @@ describe('Books', function(){
 	});
 
 
-	beforeEach(function(){
+	beforeEach(function(done){
 		book.save(function(err, newBook){
 			if(err) return console.log(err);
 			console.log("New book has been added :" + newBook.id);
 			book.id = newBook.id;
+			done();
 		});
 	});
 
-	afterEach(function(){
+	afterEach(function(done){
 		Book.findByIdAndRemove(car.id,function(err){
 			if(err) return console.log(err);
+			done();
 		});
 	});
 
@@ -40,8 +42,8 @@ describe('Books', function(){
 	        res.text.should.match("Books");
 	        res.text.should.match("Harry Potter");
 	        done();
-	      });
-	  });
+	     });
+	 });
 
 	it('should list a SINGLE book on /<id> GET', function(done) {
 	    chai.request(app)

@@ -1,9 +1,10 @@
 var express = require('express');
 var app = express();
+var layouts = require('express-ejs-layouts');
 var port = process.env.PORT || 3000;
 var routes = require('./config/routes');
 var mongoose = require('mongoose');
-var layouts = require('express-ejs-layouts');
+
 
 //connect to the database
 mongoose.connect('mongodb://localhost/books', function(){
@@ -18,7 +19,6 @@ app.use(layouts);
 
 //use router
 app.use(routes);
-
 
 //connect to the server
 app.listen(port, function(){

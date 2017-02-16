@@ -1,0 +1,8 @@
+<h1>Welcome BookWorms</h1>
+
+<% for(var i = 0; i < book.length; i++ ) { %>
+	<div>
+    	<h3><a href="/<%= book[i].id %>"><%= book[i].title %></a></h3>
+    <p><%= book[i].body %></p>
+  </div>
+<% } %>
