@@ -8,7 +8,12 @@
     </form>
     <p>Welcome, <%= user.first_name %></p>
   <% } else { %>
-    <a href="/sessions/new">Login</a>
-    <a href="/users/register">Register</a>
+    <div class="row">
+    <ul>
+      <li><a class="col-xs-4" href="/sessions/new">Login</a></li>
+      <li><span class="col-xs-4" >or<span></li>
+      <li><a class="col-xs-4" href="/users/register">Register</a></li>
+    </li>
+    </div>
   <% } %>
 </nav>

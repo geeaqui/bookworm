@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(cookieParser());
 
 // add support for sessions
+
 app.use(session({
   resave: false,
   saveUninitialized: true,

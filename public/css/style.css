@@ -1,3 +1,11 @@
+ul{
+	//display: inline-block;
+}
+
+ul li{
+	display: inline-block;
+}
+
 #emaillabel {
 	color: blue;
 }
