@@ -9,7 +9,16 @@ var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var flash = require('connect-flash');
+var path = require('path');
 var User = require('./models/user');
+
+//connect to the database
+mongoose.connect('mongodb://localhost/books', function(){
+  console.log('database has been connected');
+})
+
+//use public folder to insert external files into the wesite page
+app.use(express.static(path.join(__dirname, 'public')))
 
 // add support for cookies
 app.use(cookieParser());
@@ -23,7 +32,6 @@ app.use(session({
 
 // load logged in user
 app.use(function(req,res,next) {
-
   // no user id? just move on
   if(!req.session.user) {
        res.locals.user = false;
@@ -61,10 +69,6 @@ app.use(function(req, res, next){
     next();
 });
 
-//connect to the database
-mongoose.connect('mongodb://localhost/books', function(){
-	console.log('database has been connected');
-})
 // body parser for form data
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -86,6 +90,7 @@ app.use(layouts);
 
 //check for login on all routes except sessions
 app.use(function(req, res, next) {
+  console.log(req.url)
   var urls = ["/sessions/new", "/users/new", "/sessions", "/users"];
   if(urls.indexOf(req.url) === -1) {
     if (!req.user) return res.redirect('/sessions/new');

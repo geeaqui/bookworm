@@ -1,3 +1,4 @@
+var User = require('../models/user');
 // NEW ( AKA Registration )
 function newUser(req,res) {
 
