@@ -1,12 +1,14 @@
 <nav>
   <% if(user) { %>
-    <a href="/">Bookworm Collections</a>
-    <a href="/new">Add to collection of books</a>
+    <div id="user-menu">
+      <a href="/">Bookworm Collections</a>
+      <a href="/new">Add to collection of books</a>
+    </div>
+    <p>Welcome, <%= user.first_name %></p>
     <form action="/sessions" method="POST">
       <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Logout">
+      <input type="submit" value="Logout" id="logout-Btn" class="btn btn-primary btn-lg col-sm-1">
     </form>
-    <p>Welcome, <%= user.first_name %></p>
   <% } else { %>
     <div class="container">
       <div id="log-in-session" class="row">

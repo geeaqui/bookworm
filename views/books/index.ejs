@@ -1,8 +1,12 @@
-<h1>Welcome BookWorms</h1>
+<div class="container">
+	<div class="row">
+		<h1 class="col-sm-12">Welcome BookWorms</h1>
 
-<% for(var i = 0; i < book.length; i++ ) { %>
-	<div>
-    	<h3><a href="/<%= book[i].id %>"><%= book[i].title %></a></h3>
-    <p><%= book[i].body %></p>
-  </div>
-<% } %>
+		<% for(var i = 0; i < book.length; i++ ) { %>
+			<div class="col-sm-12 col-md-4">
+		    	<h3><a href="/<%= book[i].id %>"><%= book[i].title %></a></h3>
+		    <p><%= book[i].description %></p>
+		  </div>
+		<% } %>
+	</div>	
+</div>

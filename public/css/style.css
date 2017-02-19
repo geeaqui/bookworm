@@ -2,10 +2,7 @@ body{
 	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
 }
 
-a{
-	text-decoration: none;
-	color:#fff;
-}
+
 
 /*********** SESSION PAGE ***********/
 
@@ -20,15 +17,18 @@ ul li{
 
 #submitBtn{
 	width:30%;
-	margin-bottom: 110px;
+	margin-bottom: 150px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif 
 }
 
+#regBtn{
+	margin-bottom: 30px;
+}
 
 /************ NAVIGATION ***************/
 #log-in-session{
 	position: relative;
-	top:350px;
+	top:480px;
 	text-align: center;
 	font-size:24px;
 }
@@ -44,4 +44,32 @@ ul li{
 
 #register-btn{
 	color:#fff;
+}
+
+#register-btn a, #login-btn a{
+	text-decoration: none;
+	color:#fff;
+}
+
+#regBtn{
+	width:30%;
+
+}
+
+/***************** USER NAGIVATION *************/
+#user-menu{
+	padding:20px;
+	border-bottom: 1px solid #d7dae0;
+}
+
+
+#user-menu a{
+	background-color: #3c79f2;
+	padding:10px;
+	color:#fff;
+}
+
+/***************** User Body Section **************/
+#bodySection{
+	margin-top: 100px;
 }
