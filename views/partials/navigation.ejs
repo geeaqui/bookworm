@@ -8,12 +8,11 @@
     </form>
     <p>Welcome, <%= user.first_name %></p>
   <% } else { %>
-    <div class="row">
-      <div id="log-in-session">
+    <div class="container">
+      <div id="log-in-session" class="row">
         <ul>
-          <li><a class="col-xs-4" href="/sessions/new">Login</a></li>
-          <li><span class="col-xs-4" >or<span></li>
-          <li><a class="col-xs-4" href="/users/register">Register</a></li>
+          <li id="login-btn" class="col-xs-6 col-lg-6 btn-primary"><a href="/sessions/new">Login</a></li>
+          <li id="register-btn" class="col-xs-6 col-lg-6 btn-primary"><a href="http://localhost:3000/users/new">Register</a></li>
         </ul>
     </div>
     </div>
