@@ -1,10 +1,14 @@
-<h1><%= book.title %></h1>
+<div class="container">
+	<div class="row">
+		<h1 class="col-sm-12"><%= book.title %></h1>
 
-<p><%= book.description %></p>
+		<p class="col-sm-6"><%= book.description %></p>
 
-<a href="/<%= book._id %>/edit">edit</a>
+		<a href="/<%= book._id %>/edit">edit</a>
 
-<form action="/<%= book._id %>" method="POST">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Drop Book">
-</form> 
+		<form action="/<%= book._id %>" method="POST">
+		  <input type="hidden" name="_method" value="DELETE">
+		  <input type="submit" value="Drop Book">
+		</form>
+	</div>
+</div> 
