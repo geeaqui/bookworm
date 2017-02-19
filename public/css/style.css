@@ -1,11 +1,17 @@
-ul{
-	//display: inline-block;
+/*********** SESSION PAGE ***********/
+#sessionForm{
+
+}
+
+#sessionPage{
+	text-align: center;
+	background-color: red;
 }
 
 ul li{
 	display: inline-block;
 }
 
-#emaillabel {
-	color: blue;
+#submitBtn{
+	width:30%;
 }
