@@ -73,6 +73,11 @@ ul li{
 #user-menu>.fav-books{
 	background-color: red;
 }
+
+#fav-book{
+	width:35px;
+	height: 35px;
+}
 /***************** User Body Section **************/
 #bodySection{
 	margin-top: 100px;
