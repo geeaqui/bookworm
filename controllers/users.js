@@ -33,6 +33,7 @@ function showUser(req, res) {
       title: "books",
       books: user.books
     });
+  });
 }
 
 module.exports = {
