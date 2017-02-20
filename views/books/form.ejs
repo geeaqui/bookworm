@@ -7,9 +7,12 @@
           <input class="form-control" type="text" name="title" placeholder="title" value="<%= book.title %>" required>
         </div>
       </div>
-      	<label for="author">Author</label>
-      	<input type="text" name="author" placeholder="author" value="<%= book.author %>" required>
-      	
+      <div class="form-group">
+      	<label class=" col-sm-offset-2 col-sm-2 control-label" for="author">Author</label>
+        <div class="col-sm-4 control-label">
+      	 <input class="form-control" type="text" name="author" placeholder="author" value="<%= book.author %>" required>
+        </div>
+      </div>
       	<label for="description">Summary</label>
       	<textarea name="description" placeholder="Summary" required=""><%= book.description %></textarea>
 
