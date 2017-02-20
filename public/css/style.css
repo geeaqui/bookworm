@@ -79,6 +79,15 @@ ul li{
 	margin-bottom: 100px;
 }
 
+#indexTitle{
+	border-bottom: 1px solid #d7dae0;
+}
+
+#bookIcon{
+	width:50px;
+	height: 50px;
+}
+
 .book-welcome-page{
 	text-align: center;
 	border-bottom: 1px solid #d7dae0;
@@ -87,6 +96,10 @@ ul li{
 
 h3, h1, a{
 	font-family: 'Barrio', cursive;
+}
+
+h3{
+	text-align: center;
 }
 
 
