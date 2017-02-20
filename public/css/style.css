@@ -1,5 +1,5 @@
 body{
-	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
 }
 
 
@@ -82,7 +82,11 @@ ul li{
 .book-welcome-page{
 	text-align: center;
 	border-bottom: 1px solid #d7dae0;
+	font-family: 'Barrio', cursive;
+}
 
+h3, h1, a{
+	font-family: 'Barrio', cursive;
 }
 
 
