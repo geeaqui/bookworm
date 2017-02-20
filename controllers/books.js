@@ -55,20 +55,20 @@ function createBook(req, res){
 	// });
 
 	// ask mongoose to save the data for us and wait for the response
-  	Book.create( req.body , function(err, book){
-    // check for errors and return 500 if there was a problem
-    if(err) req.flash('error' , err.message);
-    User.findByIdAndUpdate(
-      req.user._id,
-      { $addToSet : { books: book}},
-      function(err, user) {
-        // check for errors and return 500 if there was a problem
-        if(err) req.flash('error' , err.message);
-        // redirect the user to a GET route. We'll go back to the INDEX.
-        res.redirect("/");
-      }
-    )
-  });
+  	Book.create(req.body, function(err, book){
+	    // check for errors and return 500 if there was a problem
+	    if(err) req.flash('error' , err.message);
+	    User.findByIdAndUpdate(
+	      req.user._id,
+	      { $addToSet : { books: book.id}},
+	      function(err, user) {
+	        // check for errors and return 500 if there was a problem
+	        if(err) req.flash('error' , err.message);
+	        // redirect the user to a GET route. We'll go back to the INDEX.
+	        res.redirect("/");
+	      }
+	    )
+  	});
 
 }
 

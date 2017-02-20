@@ -21,10 +21,22 @@ function createUser(req,res){
     res.redirect("/");
 
   });
+}
 
+function showUser(req, res) {
+    User.findById(req.user._id).populate("books").exec(function(err, user) {
+    // check for errors and return 500 error and message if found
+    if(err) return res.status(500).send(err);
+
+    // data return so now we can render
+    res.render("users/show" , {
+      title: "books",
+      books: user.books
+    });
 }
 
 module.exports = {
   new: newUser,
-  create: createUser
+  create: createUser,
+  show: showUser
 }
