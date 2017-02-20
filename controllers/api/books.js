@@ -14,7 +14,7 @@ function indexBook(req , res) {
 // SHOW - GET /:id
 function showBook(req , res) {
 
-  Post.findById(req.params.id , function(err, book) {
+  Book.findById(req.params.id , function(err, book) {
     // check for errors or for no object found
     if(!book) return res.status(404).send("Not found");
     if(err) res.status(500).json({error: err.message});
@@ -25,9 +25,9 @@ function showBook(req , res) {
 }
 
 // DELETE - DELETE /:id
-function deletePost(req , res) {
+function deleteBook(req , res) {
   // tell the data store to remove the post with the id in the request
-  Post.findByIdAndRemove(req.params.id , function(err) {
+  Book.findByIdAndRemove(req.params.id , function(err) {
       if(err) return res.status(500).json({error: err.message});
       // redirect to a GET request
       res.status(204).json({
@@ -38,16 +38,16 @@ function deletePost(req , res) {
 }
 
 // UPDATE - UPDATE /:id
-function updatePost(req , res) {
+function updateBook(req , res) {
     // load, bind and save all in one hit
-    Post.findByIdAndUpdate(
+    Book.findByIdAndUpdate(
         req.params.id,
         { $set:  req.body },
         { runValidators: true },
-        function(err , post){
+        function(err , book){
           if(err) return res.status(500).json({error: err.message});
           // redirect the user to a GET route. We'll go back to the INDEX.
-          res.status(204).json(post);
+          res.status(204).json(book);
         }
     );
 
