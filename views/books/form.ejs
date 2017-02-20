@@ -17,7 +17,7 @@
       	<label class=" col-sm-offset-2 col-sm-4 control-label" for="description">Summary</label>
       	<textarea class="form-control" rows="5" name="description" placeholder="Summary" required=""><%= book.description %></textarea>
       </div>
-      	<input type="submit" value="ADD BOOK">
+      	<input type="submit" value="ADD BOOK" class="btn btn-primary btn-lg btn btn-primary btn-lg col-sm-4 col-sm-offset-4">
       	<% if(book.id != "") { %>
       	<input type="hidden" name="_method" value="PUT">
       	<% } %>
