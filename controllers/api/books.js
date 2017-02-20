@@ -2,7 +2,7 @@ var Book = require('../../models/book');
 
 
 // INDEX - GET /
-function indexPost(req , res) {
+function indexBook(req , res) {
   // get the model to load all the posts. wait for data in the callback
   Book.find({} , function(err, books) {
     if(err) res.status(500).json({error: err.message});
@@ -12,15 +12,15 @@ function indexPost(req , res) {
 }
 
 // SHOW - GET /:id
-function showPost(req , res) {
+function showBook(req , res) {
 
-  Post.findById(req.params.id , function(err, post) {
+  Post.findById(req.params.id , function(err, book) {
     // check for errors or for no object found
-    if(!post) return res.status(404).send("Not found");
+    if(!book) return res.status(404).send("Not found");
     if(err) res.status(500).json({error: err.message});
 
 
-    res.status(200).json(post);
+    res.status(200).json(book);
   });
 }
 
