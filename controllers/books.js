@@ -69,14 +69,26 @@ function createBook(req, res){
 	      }
 	    )
   	});
+}
 
+//find book and update the users collection of books
+function faveBooks(req, res) {
+    User.findByIdAndUpdate(
+        req.user._id, 
+        { $addToSet: { books: req.body.book}},
+        { new: true},
+        function(err, user) {
+            if(err) return res.status(500).json({error: err.message});
+            res.redirect('/');
+        });
 }
 
 function updateBook(req, res){
 	Book.findByIdAndUpdate(req.params.id, 
 		{$set: req.body},
 		{runValidator: true},
-		function(err, car){
+		function(err, book){
+			console.log(book);
 			if(err) return res.status(500).send(err);
 			res.redirect('/');
 		});
@@ -97,5 +109,6 @@ module.exports = {
 	new: newBook,
 	create: createBook,
 	update: updateBook,
-	delete: deleteBook
+	delete: deleteBook,
+	fav: faveBooks
 }

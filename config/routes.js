@@ -36,7 +36,8 @@ router.route("/new")
 router.route("/:id")
 	.get(booksController.show)
 	.put(booksController.update)
-	.delete(booksController.delete);
+	.delete(booksController.delete)
+	.patch(booksController.fav);
 
 router.route("/:id/edit")
 	.get(booksController.edit);

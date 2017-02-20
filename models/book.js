@@ -18,6 +18,9 @@ var BookSchema = mongoose.Schema({
 	},
 	recommended:{
 		type:Number
+	},
+	imgurl:{
+		type:String
 	}
 });
 
