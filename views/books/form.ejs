@@ -13,9 +13,10 @@
       	 <input class="form-control" type="text" name="author" placeholder="author" value="<%= book.author %>" required>
         </div>
       </div>
-      	<label for="description">Summary</label>
-      	<textarea name="description" placeholder="Summary" required=""><%= book.description %></textarea>
-
+      <div class="form-group">
+      	<label class=" col-sm-offset-2 col-sm-4 control-label" for="description">Summary</label>
+      	<textarea class="form-control" rows="5" name="description" placeholder="Summary" required=""><%= book.description %></textarea>
+      </div>
       	<input type="submit" value="ADD BOOK">
       	<% if(book.id != "") { %>
       	<input type="hidden" name="_method" value="PUT">
