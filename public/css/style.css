@@ -67,8 +67,12 @@ ul li{
 	background-color: #3c79f2;
 	padding:10px;
 	color:#fff;
+	border-radius: 5px;
 }
 
+#user-menu>.fav-books{
+	background-color: red;
+}
 /***************** User Body Section **************/
 #bodySection{
 	margin-top: 100px;

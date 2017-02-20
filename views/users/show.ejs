@@ -2,10 +2,10 @@
 	<div class="row">
 		<h1 class="col-sm-12 book-welcome-page">Welcome BookWorms</h1>
 
-		<% for(var i = 0; i < user.books; i++ ) { %>
+		<% for(var i = 0; i < books.length; i++ ) { %>
 			<div id="book-articles" class="col-sm-12 col-md-4 col-lg-4">
-		    	<h3 id="indexTitle"><a href="/<%= book[i].id %>"><%= book[i].title %> <img id="bookIcon" src="/images/book-icon.svg"/></a></h3>
-		    <p><%= book[i].description %></p>
+		    	<h3 id="indexTitle"><a href="/<%= books[i] %>"><%= books[i].title %> <img id="bookIcon" src="/images/book-icon.svg"/></a></h3>
+		    <p><%= books[i].description %></p>
 		  </div>
 		<% } %>
 	</div>	

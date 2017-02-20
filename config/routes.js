@@ -6,10 +6,13 @@ var sessionsController = require('../controllers/sessions');
 
 //users
 router.route('/users')
-      .post(usersController.create);
+		.post(usersController.create);
 
 router.route('/users/new')
-      .get(usersController.new);
+		.get(usersController.new);
+
+router.route('/users/show')
+		.get(usersController.show);
 
 
 //sessions
