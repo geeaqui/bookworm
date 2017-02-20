@@ -119,11 +119,16 @@ h3{
 }
 
 .editBtn{
-	background-color: red;
-	font-size: 24px;
+	background-color: #3c79f2;;
+	font-size: 18px;
 	padding:5px 25px;
 	color:#fff;
 	border-radius: 5px;
+}
+
+.editBtn img{
+	width:20px;
+	height:20px;
 }
 
 
