@@ -118,7 +118,13 @@ h3{
 	height:300px;
 }
 
-
+.editBtn{
+	background-color: red;
+	font-size: 24px;
+	padding:5px 25px;
+	color:#fff;
+	border-radius: 5px;
+}
 
 
 

@@ -3,6 +3,17 @@ var router = express.Router();
 var booksController = require('../controllers/books');
 var usersController = require('../controllers/users');
 var sessionsController = require('../controllers/sessions');
+var postsApiController = require('../controllers/api/books');
+
+// API section
+router.route('/api/books')
+  .get(postsApiController.index)
+  .post(postsApiController.create);
+
+router.route('/api/books/:id')
+  .get(postsApiController.show)
+  .put(postsApiController.update)
+  .delete(postsApiController.delete);
 
 //users
 router.route('/users')

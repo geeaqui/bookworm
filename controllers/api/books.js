@@ -42,12 +42,12 @@ function updateBook(req , res) {
     // load, bind and save all in one hit
     Book.findByIdAndUpdate(
         req.params.id,
-        { $set:  req.body },
-        { runValidators: true },
+        { $inc: { recommended: 1 } },
+        { runValidators: true, new: true },
         function(err , book){
           if(err) return res.status(500).json({error: err.message});
           // redirect the user to a GET route. We'll go back to the INDEX.
-          res.status(204).json(book);
+          res.status(200).json(book.recommended);
         }
     );
 
@@ -55,16 +55,16 @@ function updateBook(req , res) {
 
 
 // CREATE - POST /
-function createPost(req , res) {
+function createBook(req , res) {
   // ask mongoose to save the data for us and wait for the response
-  Post.create( req.body , function(err, post){
+  Book.create( req.body , function(err, book){
     // check for errors and return 500 if there was a problem
     if(err) return res.status(500).json({error: err.message});
 
     // redirect the user to a GET route. We'll go back to the INDEX.
     res.status(201).json({
       message: "Successfully created",
-      post: post
+      book: book
     });
   });
 }
@@ -74,10 +74,10 @@ function createPost(req , res) {
 // export all our controller functions in an object
 module.exports = {
 
-  index:indexPost,
-  show: showPost,
-  delete: deletePost,
-  update: updatePost,
-  create: createPost
+  index:indexBook,
+  show: showBook,
+  delete: deleteBook,
+  update: updateBook,
+  create: createBook
 
 }

@@ -5,16 +5,13 @@
 
 		<p class="col-sm-6"><%= book.description %></p>
 
-		<a href="/<%= book._id %>/edit">edit</a>
+		<a class="editBtn" href="/<%= book._id %>/edit">edit</a>
 
 		<form action="/<%= book._id %>" method="POST">
 		  <input type="hidden" name="_method" value="DELETE">
-		  <input type="submit" value="Drop Book">
+		  <input class="btn btn-danger" type="submit" value="Drop Book">
 		</form>
-		<form action="/<%= user.books %>" method="PUT">
-		  <input type="hidden" name="_method" value="PUT">
-		  <input type="submit" value="Add to fav">
-		</form>
-
+		<button id="userRecommend"type="button" class="btn btn-success">Recommend: <%= book.recommended%></button>
+	
 	</div>
 </div> 
