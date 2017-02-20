@@ -1,4 +1,5 @@
 var Book = require('../models/book');
+var User = require('../models/user');
 
 function indexBooks(req, res){
 	Book.find({}, function(err, books){
@@ -48,10 +49,27 @@ function newBook(req, res){
 }
 
 function createBook(req, res){
-	Book.create(req.body, function(err){
-		if(err) return req.flash('error' , err.message);
-		res.redirect('/');
-	});
+	// Book.create(req.body, function(err){
+	// 	if(err) return req.flash('error' , err.message);
+	// 	res.redirect('/');
+	// });
+
+	// ask mongoose to save the data for us and wait for the response
+  	Book.create( req.body , function(err, book){
+    // check for errors and return 500 if there was a problem
+    if(err) req.flash('error' , err.message);
+    User.findByIdAndUpdate(
+      req.user._id,
+      { $addToSet : { books: book}},
+      function(err, user) {
+        // check for errors and return 500 if there was a problem
+        if(err) req.flash('error' , err.message);
+        // redirect the user to a GET route. We'll go back to the INDEX.
+        res.redirect("/");
+      }
+    )
+  });
+
 }
 
 function updateBook(req, res){
