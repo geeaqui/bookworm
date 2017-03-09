@@ -103,7 +103,7 @@ app.use(layouts);
 app.use(routes);
 
 //connect to the server
-app.listen(port, function(){
+app.listen(process.env.PORT || 3000, function(){
 	console.log("The server is on and is listening on port " + port);
 });
 
